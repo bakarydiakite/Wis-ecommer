@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'Produits/css/electronique.css' %}">
+    <link rel="stylesheet" href=" {% static 'Produits/css/Produits.css' %} ">
+    <link rel="stylesheet" href=" {% static 'Produits/assets/bootstrap/css/bootstrap.css' %} ">
+    <link rel="stylesheet" href="{% static 'Produits/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Produits/css/panier.css' %}">
+    <link rel="stylesheet" href="{% static 'Produits/css/commander.css' %}">
+    <link rel="stylesheet" href=" {% static 'Produits/css/rechercher.css' %} ">
+    
+
+</head>
+<style>
+    .nav-links li a,
+    .nav-actions li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+    .nav-links li a:hover,
+    .nav-actions li a:hover {
+        color: #333;
+        text-decoration: white 3px solid underline;
+        transition: 0.5s;
+}
+
+
+</style>
+<body>
+
+    <header> 
+        <div class="top-bar">
+            <p>Sonfonia T7, Conakry, <span>Guinée | 625617377</span></p>
+            <div style="display: flex;" class="user-actions">
+                <ul style="list-style-type: none;">
+                    {% if user.is_authenticated %}
+                    <li class="connexion"><a href="{% url 'deconnexion' %}" onclick="localStorage.clear();">Deconnexion</a></li>
+                    {% else %}
+                    <li class="connexion"><a href="{% url 'connexion' %}" onclick="localStorage.clear();">Connexion</a></li>
+                    {% endif %}
+                </ul>  
+                <a style="text-decoration: none;" href="{% url 'panier' %}"><img style="width: 25px;" src=" {% static 'Produits/images/panier.png' %} " alt="img"></a>
+                {% if user.panier %}
+                    <a style="margin: 0; text-decoration: none; font-size: 20px;" href="{% url 'panier' %}">
+                        {{ user.panier.produits.count }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        <form action="{% url 'recherche' %}" method="get">
+            <div class="header">
+                <label class="nav-logo"><span>WI</span>Shop</label>
+                <div class="search-bar">
+                    <input type="text" placeholder="Chercher un produit..." name="recherche">
+                    <button type="submit">🔍</button>
+                </div>
+            </div>
+        </form>
+        <nav>
+            <input type="checkbox" id="nav-toggle"> 
+            <label for="nav-toggle" class="nav-toggle-label">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-links">
+                <li><a class="active" href="{% url 'accueil' %}">Accueil</a></li>
+                <li><a href="{% url 'produits' %}">Produits</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-categorie">Catégorie</a>
+                    <ul class="dropdown-menu">
+                        {% for categorie in categorie %}
+                        <li><a href="{% url 'prodCategorie' categorie.id %}">{{ categorie.nom_categorie }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block js %}{% endblock %}
+    {% comment %} {% include "Produits/footer.html" %} {% endcomment %}
+</body>
+</html>
+
+
+
+
+
+
+
+

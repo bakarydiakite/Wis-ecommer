@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion sur TulipShop</title>
+    <link rel="stylesheet" href=" {% static 'Acount/css/connexion.css' %} ">
+</head>
+<body style="background-image: linear-gradient(112.5deg, rgb(214, 214, 214) 0%, rgb(214, 214, 214) 10%,rgb(195, 195, 195)
+ 10%, rgb(195, 195, 195) 53%,rgb(176, 176, 176) 53%, rgb(176, 176, 176)
+  55%,rgb(157, 157, 157) 55%, rgb(157, 157, 157) 
+  60%,rgb(137, 137, 137) 60%, rgb(137, 137, 137) 
+  88%,rgb(118, 118, 118) 88%, rgb(118, 118, 118) 91%,rgb(99, 99, 99)
+   91%, rgb(99, 99, 99) 100%),linear-gradient(157.5deg, rgb(214, 214, 214) 
+   0%, rgb(214, 214, 214) 10%,rgb(195, 195, 195) 10%, rgb(195, 195, 195) 
+   53%,rgb(176, 176, 176) 53%, rgb(176, 176, 176) 
+   55%,rgb(157, 157, 157) 55%, rgb(157, 157, 157) 
+   60%,rgb(137, 137, 137) 60%, rgb(137, 137, 137) 
+   88%,rgb(118, 118, 118) 88%, rgb(118, 118, 118) 
+   91%,rgb(99, 99, 99) 91%, rgb(99, 99, 99) 100%),
+   linear-gradient(135deg, rgb(214, 214, 214) 0%, 
+   rgb(214, 214, 214) 10%,rgb(195, 195, 195) 10%, 
+   rgb(195, 195, 195) 53%,rgb(176, 176, 176) 53%, 
+   rgb(176, 176, 176) 55%,rgb(157, 157, 157) 55%, 
+   rgb(157, 157, 157) 60%,rgb(137, 137, 137) 60%, 
+   rgb(137, 137, 137) 88%,rgb(118, 118, 118) 88%, 
+   rgb(118, 118, 118) 91%,rgb(99, 99, 99) 91%, 
+   rgb(99, 99, 99) 100%),linear-gradient(90deg, 
+   rgb(195, 195, 195),rgb(228, 228, 228)); 
+   background-blend-mode:overlay,overlay,overlay,normal;">
+
+    <div class="logo">
+        <a href="Accueil.html"><h1><span>WI</span>Shop</h1></a>
+    </div>
+    <div class="container">
+        <div class="form-container sign-up-container">
+            
+            <form id="signUpForm" action="{% url 'inscription' %}" method="post" enctype="multipart/form-data">
+                       
+                <h1 class="creer">Créer un compte</h1>
+                {% csrf_token %}       
+                <input type="text" name="username" placeholder="Nom d'utilisateur" id="signupName" required />
+                <input type="email" name="email" placeholder="Email" id="signupEmail" required />
+                <input type="password" name="pw" placeholder="Mot de passe" id="signupPassword" required minlength="6" />
+                <input type="password" name="pwConfirm" placeholder="Confirmer mot de pass" id="signupPassword" required minlength="6" />
+                <button class="btn-inscrire" type="submit">S'inscrire</button>
+                <p class="error-message" id="signUpError"></p>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form id="signInForm" method="post" action="{% url 'connexion' %}" enctype="multipart/form-data">
+                {% csrf_token %}    
+                <h1 class="connecter">Se connecter</h1>
+                <input type="text" name="usernam" placeholder="Nom d'utilisateur" required />
+                <input type="password" name="pwd" placeholder="Mot de passe" id="signinPassword" required />
+                <button type="submit">Connexion</button>
+                <p><a href="{% url 'password_reset' %}">Mot de passe oublié ?</a></p>
+                
+                <p class="error-message" id="signInError">{{erreur}}</p>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienvenue!</h1>
+                    <p>Pour rester connecté avec nous, <br> veuillez remplir ce formulaire</p>
+                    <button class="ghost" id="signIn">Se connecter</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="over-h">Bonjour!</h1>
+                    <p class="over-p">Pas de compte ? Entrez vos informations personnelles</p>
+                    <button style="margin-left: 90px;" class="ghost" id="signUp">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER HTML -->
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>À propos de nous</h3>
+                <p>Nous sommes une boutique en ligne dédiée à offrir les meilleurs produits à nos clients avec un service de qualité supérieure.</p>
+            </div>
+            <div class="footer-column">
+                <a style="color: white;" href=""><h3>Condition d'utilisation</h3></a>
+            </div>
+            <div class="footer-column">
+               <a style="color: white;text-decoration: none;" href="" id="contact"><h3>Contactez-nous</h3></a>
+                <ul>
+                    <li>Email: tulip@ecommerce.com</li>
+                    <li>Téléphone: +224 625617377</li>
+                    <li>Adresse: Guinée, Conakry T7</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="images/facebook-removebg-preview.png" alt=""></a>
+                    <a href="#"><img src="images/twitter-removebg-preview.png" alt=""></a>
+                    <a href="#"><img src="images/instagram-removebg-preview.png" alt=""></a>
+                    <a href="#"><img src="images/linkedin-removebg-preview.png" alt=""></i></a>
+                </div>
+            </div>
+            <!-- <div class="footer-column">
+                <h3>S'inscrire</h3>
+                <div class="inscrire">
+                   <input type="text" placeholder="email">
+                </div>
+            </div> -->
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 E-commerce. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src=" {% static 'Acount/js/connexion.js' %} "></script>
+
+</body>
+</html>
+   

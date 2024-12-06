@@ -1,0 +1,96 @@
+{% include "Produits/header.html" %}
+
+    <main>
+        <section class="cart">
+                <h1 style =" text-align:center;" class="h1">PANIER</h1>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Produits</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Quantie</th>
+                    <th scope="col">Sous-total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for panier  in allproduct %}
+                  <tr>
+                   
+                    <td>
+                        <img src=" {{panier.order.image.url}}" width="100px" height="100px" alt="produits">
+                    </td>
+                    <td>
+                        <p class="prix" style ="font-size: 15px; align-items: center; margin-top: 30px" >{{panier.order.prix}} GNF</p>
+                    </td>
+                    <td class="quantite">
+                        <input style="margin-top: 30px; width: 40px; margin-left: -190px;" type="number" class="quantity" value="{{panier.quantity}}" min="1">
+                            {% comment %} <a href="" class="btn btn-primary r-0">+</a>
+                            <a href="" class="btn btn-primary r-0">-</a> {% endcomment %}
+                    </td>
+
+                    <td>
+                        <p class="s_total" style="margin-top: 30px;"> GNF</p>
+                    </td>
+                    <td scope="row">
+                        <a href=" {% url 'supprimer_panier' %} ">
+                            supprimer
+                        </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+            <div class="cart-actions">
+                <a href=" {% url 'produits' %} "><button onclick="continueShopping()">Poursuivre les achats</button></a>
+                <a href=" {% url 'panier' %} "><button onclick="updateCart()">Mettre à jour le panier</button></a>
+            </div>
+
+            <div class="checkout">
+                <h3>Total Panier</h3>
+                <p>Sous-total : 
+                <p id="total">Total : </p>
+                <a href="{% url 'commander' %}"><button onclick="validateOrder()">Valider la commande</button></a>
+                <div class="payment-methods">
+                    <img src="visa.png" alt="Visa">
+                    <img src="paypal.png" alt="Paypal">
+                    <img src="stripe.png" alt="Stripe">
+                </div>
+            </div>
+            <script>
+                prix = document.querySelectorAll('.prix')
+                vl = document.querySelectorAll('.quantity')
+                n = 0
+                s=0
+                k=0
+                vl.forEach(Element =>{
+                    n++
+                })
+                for (i=0;i<n ; i++){
+                    k = prix[i].textContent
+                    k = parseInt(k)
+                    l= vl[i].value
+                    l = parseInt(l)
+                    s+= k*l
+                    
+                }
+                console.log(s)
+                total = document.getElementById('total')
+                total.textContent+=s
+                s_total = document.querySelectorAll('.s_total')
+                nbr =0
+                s_total.forEach(Element =>{
+                    k = prix[nbr].textContent
+                    k = parseInt(k)
+                    l= vl[nbr].value
+                    l = parseInt(l)
+                    prod = k*l
+                    nbr++
+                    Element.textContent = prod
+                })
+            </script>
+
+        </section>
+    </main>
+
+    {% include "Produits/footer.html" %}

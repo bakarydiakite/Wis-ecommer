@@ -1,0 +1,670 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f6f5f7;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.logo {
+    text-align: center;
+    position: relative;
+    top: 140px;
+}
+.logo a{
+    text-decoration: none;
+    color: #555;
+    position: relative;
+    top: -15px;
+}
+span{
+    color: #2294d7;
+}
+h1 {
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    right: 40px;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #2294d7;
+    background-color: #2294d7;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+}
+
+form {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 70%;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    top: 150px;
+    left: 30%;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+.sign-in-container button {
+    width: 78%;
+}
+.btn-inscrire {
+    width: 78%;
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+    0%, 49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+    
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: #2294d7;
+    background: -webkit-linear-gradient(to right, #2294d7, #2294d7);
+    background: linear-gradient(to right, #2294d7, #2294d7);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #ffffff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    margin-left:-10px ;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+.overlay-panel .over-h{
+    text-align: center;
+    margin-left: 170px;
+}
+.overlay-panel .over-p {
+    text-align: center;
+    margin-left: 100px;
+}
+.overlay-panel h1{
+    margin-left: 0px;
+}
+.overlay-panel p{
+    margin-left: -50px;
+}
+.ghost{
+    margin-left: -50px;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Pour les petits écrans (tablettes en portrait, téléphones) */
+@media (max-width: 1200px) and (min-width: 769px) {
+    .container {
+        width: 90%;
+        left: 1em;
+        top: 80px;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 640px) {
+    .logo {
+        top: 80px;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+        right: 20px;
+    }
+    .creer {
+        font-size: 20px;
+    }
+    .connecter{
+        font-size: 20px;
+    }
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 83%;
+        font-size: 12px;
+    }
+    .container {
+        width: 90%;
+        left: 30px;
+        top: 80px;
+        min-height: 330px;
+    }
+    #signUpForm input{
+        position: relative;
+        left: 0px;
+    }
+    .form-container.sign-up-container input {
+        margin-left: -40px;
+    }
+    .form-container.sign-up-container button{
+        margin-left: -40px;
+    }
+    .form-container.sign-in-container input{
+        margin-left: -40px;
+    }
+    .form-container.sign-in-container button{
+        margin-left: -40px;
+    }
+
+    .form-container.sign-in-container {
+        width: 50%; /* Faire en sorte que sign-in-container prenne tout l'espace */
+        position: relative;
+        opacity: 1;
+        z-index: 2;
+    }
+
+}
+@media  (max-width: 640px) and (min-width: 565px) {
+    .logo {
+        top: 80px;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+        right: 20px;
+    }
+    .creer {
+        font-size: 20px;
+        margin-left: -30px;
+    }
+    .connecter{
+        font-size: 20px;
+        margin-left: -30px;
+    }
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 83%;
+        font-size: 12px;
+    }
+    .container {
+        width: 95%;
+        left: 12px;
+        top: 80px;
+        min-height: 300px;
+    }
+    #signUpForm input{
+        position: relative;
+        left: 0px;
+    }
+    .form-container.sign-up-container input {
+        margin-left: -40px;
+    }
+    .form-container.sign-up-container button{
+        margin-left: -40px;
+    }
+    .form-container.sign-in-container input{
+        margin-left: -40px;
+    }
+    .form-container.sign-in-container button{
+        margin-left: -40px;
+    }
+
+    .form-container.sign-in-container {
+        width: 50%; /* Faire en sorte que sign-in-container prenne tout l'espace */
+        position: relative;
+        opacity: 1;
+        z-index: 2;
+    }
+
+}
+@media (max-width: 565px) and (min-width: 480px) {
+    .logo {
+        top: 80px;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+        right: 20px;
+    }
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 83%;
+        font-size: 12px;
+    }
+    .creer {
+        font-size: 20px;
+        margin-left: -30px;
+    }
+    .connecter{
+        font-size: 20px;
+        margin-left: -30px;
+    }
+    .container {
+        width: 90%;
+        left: 25px;
+        top: 80px;
+        min-height: 300px;
+    }
+    .ghost button{
+        padding: 0 30px;
+    }
+    #signUpForm input{
+        position: relative;
+        left: 0px;
+    }
+    .form-container.sign-up-container input {
+        margin-left: -45px;
+    }
+    .form-container.sign-up-container button{
+        margin-left: -40px;
+    }
+    .form-container.sign-in-container input{
+        margin-left: -45px;
+    }
+    .form-container.sign-in-container button{
+        margin-left: -40px;
+    }
+
+    .form-container.sign-in-container {
+        width: 50%;
+        position: relative;
+        opacity: 1;
+        z-index: 2;
+    }
+}
+@media (max-width: 480px) and (min-width: 400px) {
+    .logo {
+        top: 80px;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+        right: 20px;
+    }
+    .overlay-panel.overlay-left .ghost{
+        margin-left: -55px;
+        padding: 10px 10px;
+    }
+    .overlay-panel.overlay-right .ghost{
+        margin-left: -100px;
+        padding: 10px 10px;
+    }
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 87%;
+        font-size: 12px;
+        margin-left: -40px;
+    }
+    .creer {
+        font-size: 18px;
+        margin-left: -30px;
+    }
+    .connecter{
+        font-size: 18px;
+        margin-left: -30px;
+    }
+    .container {
+        width: 90%;
+        left: 25px;
+        top: 80px;
+        min-height: 250px;
+    }
+    .ghost button{
+        padding: 0 30px;
+    }
+    #signUpForm input{
+        position: relative;
+        left: 0px;
+    }
+    h1{
+        font-size: 18px;
+    }
+    p{
+        font-size: 11px;
+        display: block;
+    }
+    .form-container.sign-up-container input {
+        margin-left: -48px;
+        font-size: 10px;
+        padding-left: 5px;
+    }
+    .form-container.sign-up-container button{
+        margin-left: -40px;
+        margin-left: -30px;
+        padding-left: 30px;
+    }
+    .form-container.sign-in-container input{
+        margin-left: -48px;
+        font-size: 10px;
+        padding-left: 5px;
+    }
+    .form-container.sign-in-container button{
+        margin-left: -40px;
+        padding-left: 30px;
+    }
+
+    .form-container.sign-in-container {
+        width: 50%; /* Faire en sorte que sign-in-container prenne tout l'espace */
+        position: relative;
+        opacity: 1;
+        z-index: 2;
+    }
+}
+@media (max-width: 400px) and (min-width: 320px) {
+    .logo {
+        top: 80px;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+        right: 20px;
+    }
+    .overlay-panel.overlay-left .ghost{
+        margin-left: -55px;
+        padding: 10px 10px;
+    }
+    .overlay-panel.overlay-right .ghost{
+        margin-left: -100px;
+        padding: 10px 10px;
+    }
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 87%;
+        font-size: 12px;
+        margin-left: -40px;
+    }
+    .creer {
+        font-size: 15px;
+        margin-left: -30px;
+    }
+    .connecter{
+        font-size: 18px;
+        margin-left: -30px;
+    }
+    .container {
+        width: 90%;
+        left: 25px;
+        top: 80px;
+        min-height: 250px;
+    }
+    .ghost button{
+        padding: 0 30px;
+    }
+    #signUpForm input{
+        position: relative;
+        left: 0px;
+    }
+    h1{
+        font-size: 18px;
+    }
+    p{
+        font-size: 9px;
+        display: block;
+    }
+    .form-container.sign-up-container input {
+        margin-left: -48px;
+        font-size: 10px;
+        padding-left: 5px;
+    }
+    .form-container.sign-up-container button{
+        margin-left: -40px;
+        margin-left: -30px;
+        padding-left: 20px;
+    }
+    .form-container.sign-in-container input{
+        margin-left: -48px;
+        font-size: 10px;
+        padding-left: 5px;
+    }
+    .form-container.sign-in-container button{
+        margin-left: -40px;
+        padding-left: 18px;
+    }
+
+    .form-container.sign-in-container {
+        width: 50%;
+        position: relative;
+        opacity: 1;
+        z-index: 2;
+    }
+}
+
+/* FOOTER CSS */
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    top: 200px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    margin: 10px;
+}
+
+.footer-column h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #2294d7;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-icons img{
+    width: 30px;
+}
+
+.social-icons a:hover {
+    color:#2294d7    ;
+}
+
+.inscrire input{
+    padding: 5px 50px 5px 5px;
+    border-radius: 10px;
+    outline: none;
+}
+.inscrire input:hover{
+    border: 1px solid #2294d7;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}

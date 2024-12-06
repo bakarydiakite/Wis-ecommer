@@ -1,0 +1,83 @@
+{% load static %}
+{% include "Produits/header.html" %}
+
+
+
+
+  {% comment %} <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+     </div>
+    <div class="carousel-inner">
+        {% for carousel in categorie %}
+      <div class="carousel-item active">
+        <img height="400px" src="{{cate.image_categorie.url}}" class="d-block w-100" alt="">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>{{cate.nom_categorie}}</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur.</p>
+        </div>
+    </div>
+  {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div> {% endcomment %}
+
+    <!-- Scrool bar -->
+    <div class="nom-categorie" style="background-image: url({{ cate.image_categorie.url }});">
+        <div class="nomCategorieText">
+            <h1>{{cate.nom_categorie}}</h1>
+            <p> {{ cate.description }} </p>
+        </div>
+    </div>
+
+    <!-- Produits electronique -->
+
+    <h1 class="title">Nos Produits Phares
+        <a href="Produits.html" class="afficher-plus">afficher plus &#8594;</a>
+    </h1>
+    <div class="produits">
+        <div class="produits-contenu">
+            
+            {% for produit in prodsCategorie %}
+            
+            <div class="produits-text">
+                <img class="images" src="{{produit.image.url}}" alt="{{produit.nom}}">
+            <div class="produits-info">
+                <h3 class="nom_pro">{{produit.nom}}</h3>
+                <p class="price">{{produit.prix}} GNF </p>
+                <!-- <div class="ratting">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i><br><br>
+                </div> -->
+                <div class="achat">
+                    <a id="detail" class="acheter" href="{% url 'details' produit.id %}">Détails</a>
+                    <a id="acheter" class="acheter" href="connexion.html">Acheter</a>
+                </div>
+                
+            </div>
+        </div>
+            
+
+            {% endfor %}
+
+           
+
+        
+            
+        </div>
+    </div>
+
+    <!-- Footer html -->
+
+    {% include "Produits/footer.html" %}

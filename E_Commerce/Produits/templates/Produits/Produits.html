@@ -1,0 +1,79 @@
+{% load static %}
+{% include "Produits/header.html" %}
+
+    
+
+<!-- Nos meilleurs produits -->
+<a style ="text-align: center;" class="titre" href="#">
+    <h6 style="color: #2294d7;">Recommandation</h6>
+</a>
+<h1 class="title">Meilleurs Produits 
+    <a href="Produits.html" class="afficher-plus">afficher plus &#8594;</a>
+</h1>
+<div class="produits">
+    <div class="produits-contenu">
+        
+        {% for produit in allProduit %}
+        
+        <div class="produits-text">
+            <img id="aa{{ prod.id }}" class="images" src=" {{produit.image.url}} " alt="Produit Image">
+        <div class="produits-info">
+            <h3 class="nom_pro"> {{produit.nom}} </h3>
+            <p class="price"> {{produit.prix}} GNF</p>
+            <div class="achat">
+                <!-- <a id="detail" class="acheter" href="">Détails</a> -->
+                <a id="detail" class="acheter" href=" {% url 'details' produit.id %} ">Details</a>
+                {% comment %} <a id="acheter" class="acheter" href=" {% url 'addCart' produit.id %} ">Ajouter</a> {% endcomment %}
+                <button id="{{ prod.id }}" class=" ted ">ajouter</button>
+            </div>
+        </div>
+    </div>
+        
+        {% endfor %}
+
+    </div>
+</div>
+
+{% include "Produits/footer.html" %}
+
+
+ <!-- {% block js %}
+       <scrip type="text/javascript">
+           console.log("juste un test");
+           if(localStorage.getItem('panier') == null){
+                var panier = {}; 
+           }else{
+                panier = JSON.parse(localStorage.getItem('panier'));
+           }
+           $(document).on('click', '.ted', function(){
+                console.log("ajouter");
+                var item_id = this.id.toString();
+                console.log(item_id);
+                if(panier[item_id] != undefined){
+                    panier[item_id] = panier[item_id] +1;
+                }else{
+                    panier[item_id] = 1;
+                }
+                console.log(panier); 
+                localStorage.setItem('panier', JSON.stringify(panier));
+                document.getElementById("panier").innerHTML ="Panier("+ Object.keys(panier).length+")";
+           });
+           AfficherList(panier);
+            function AfficherList(panier){
+                var panierString = "";
+                panierString += "<h5> voici votre liste </h5>";
+                var index = 1;
+                for(var x in panier){
+                    panierString += index;
+                    panierString += document.getElementById("aa"+x).innerHTML +"Qte"+ panier[x] + "<br>";
+                    index +=1;
+                }
+                panierString = "<a href='/chechout' class='btn btn-primary'>"
+                $('[data-toggle="popover"]').popover();
+                document.getElementById('panier').setAttribute('data-bs-content', panierString);
+            }
+
+    
+    {% endblock %} -->
+
+

@@ -1,0 +1,100 @@
+{% load static %}
+{% include "Produits/header.html" %}
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <img src="{{produit.image.url}}" style="position: relative; left: 20em; margin: 20px" width="400px" height="400px" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="text-warning display-3">
+                {{produit.nom}}
+            </div>
+            <div style="font-size: 25px" class="text-danger ">
+                {{produit.prix}} GNF
+            </div>
+            <div >
+                {{produit.description}}
+            </div> 
+            <a id="acheter" class="acheter" href=" {% url 'addCart' produit.id %} ">Ajouter</a>
+        </div>
+     </div>
+
+{% comment %} <div class="Detail_partie">
+    <div class="detail_image">
+        <img src=" {{produit.image.url}} " alt="">
+    </div>
+    <div class="details">
+        <div class="nom_produit">
+            <p> {{produit.nom}} </p>
+        </div>
+        <div class="prix">
+            <p> {{produit.prix}} GNF</p>
+        </div>
+        <div>
+            {{produit.description}}
+        </div>
+        <div class="acheter">
+            <a href=""><button>Acheter</button></a>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+
+
+{% include "Produits/footer.html" %}
+
+
+    {% comment %} <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>À propos de nous</h3>
+                <p>Nous sommes une boutique en ligne dédiée à offrir les 
+                meilleurs produits à
+                nos clients avec un service de qualité supérieure.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Produits</a></li>
+                    <li><a href="#">Catégories</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contactez-nous</h3>
+                <ul>
+                    <li>Email: <a href="mailto:tulip@ecommerce.com">tulip@ecommerce.com</a></li>
+                    <li>Téléphone: <a href="tel:+224625617377">+224 625617377</a></li>
+                    <li>Adresse: Guinée, Conakry T7</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Suivez-nous</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="images/linkedin.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>S'inscrire</h3>
+                <div class="inscrire">
+                    <input type="email" placeholder="Entrez votre email">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 E-commerce. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="Détails.js"></script>
+</body>
+</html> {% endcomment %}

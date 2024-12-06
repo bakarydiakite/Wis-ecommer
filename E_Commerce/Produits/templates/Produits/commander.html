@@ -1,0 +1,65 @@
+
+{% include "Produits/header.html" %}
+
+    <div class="avant-container">
+        <h2>PANIER > DÉTAILS DE LA COMMANDE > COMMANDE TERMINÉE</h2>
+        <p>Dejà un compte? <a href="">Connectez vous à votre compte Tulip</a></p>
+    </div>
+    
+    <div class="container">
+        <form class="billing-details" method="POST">
+            {% csrf_token %}
+            <h3>DÉTAILS DE FACTURATION</h3>
+            <input type="hidden" id="items" name="items">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prenom">Prénom *</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom *</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="adresse">Adresse *</label>
+                <input type="text" id="adresse" name="adresse" required>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Téléphone *</label>
+                <input type="text" id="telephone" name="telephone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Adresse de messagerie *</label>
+                <input type="email" id="email" name="email" required>
+            </div> 
+            <div class="form-group">
+                <label for="notes">Informations complémentaires</label>
+                <textarea id="notes" name="notes" placeholder="Commentaires concernant votre commande, ex. : consignes de livraison."></textarea>
+            </div>
+            <button type="submit" class="btn-commander">COMMANDER</button>
+        </form>
+        
+            <div class="order-summary">
+                <h3>VOTRE COMMANDE</h3>
+                <table>
+                    <tr>
+                        <th>PRODUIT</th>
+                        <th>SOUS-TOTAL</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </table>
+                <p>**Paiement à la livraison**</p>
+            </div>
+        </div>
+   
+
+    {% include "Produits/footer.html" %}
+
