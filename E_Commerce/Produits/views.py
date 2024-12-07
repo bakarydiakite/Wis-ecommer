@@ -19,10 +19,10 @@ def produits(request):
     allProduit = MesProduits.objects.all()
     return render(request, 'Produits/Produits.html', {'allProduit': allProduit, 'categorie':categorie})
     
-    
+     
 def recherches(request):
-    if request.method == 'GET':
-        user_saisie = request.GET.get('recherche')
+    if request.method == 'GET': 
+        user_saisie = request.GET.get('recherche') 
         prods = MesProduits.objects.filter(nom__icontains=user_saisie)
         return render(request,'Produits/recherce.html',{'prods':prods})
     return render(request,'Produits/recherce.html')
@@ -34,7 +34,6 @@ def prodCategorie(request,id_cate):
     cat = Categories.objects.get(id=id_cate)
     print(cat)
     prodsCategorie = MesProduits.objects.filter(categorie=cat)
-    print(prodCategorie)
     return render(request,'Produits/catproduts.html',{'prodsCategorie':prodsCategorie,
                                                       'cate':cat,
                                                       'categorie':categorie})
