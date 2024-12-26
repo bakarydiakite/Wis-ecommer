@@ -1,4 +1,6 @@
-{% include "Produits/header.html" %}
+{% include "Produits/header.html" %} 
+{% load static %}
+{% block content %}
 
     <main>
         <section class="cart">
@@ -23,9 +25,13 @@
                         <p class="prix" style ="font-size: 15px; align-items: center; margin-top: 30px" >{{panier.order.prix}} GNF</p>
                     </td>
                     <td class="quantite">
-                        <input style="margin-top: 30px; width: 40px; margin-left: -190px;" type="number" class="quantity" value="{{panier.quantity}}" min="1">
-                            {% comment %} <a href="" class="btn btn-primary r-0">+</a>
-                            <a href="" class="btn btn-primary r-0">-</a> {% endcomment %}
+                        <!-- <input style="margin-top: 30px; width: 40px; margin-left: -190px;" type="number" class="quantity" value="{{panier.quantity}}" min="1"> -->
+                            <!-- <a style="margin-left: 10px; width: 30px" href="" class="btn btn-primary r-0">+</a> -->
+                             <button id="plus" class="btn-primary r-0">+</button>
+                            <span id="counter" class="quantite">
+                                {{panier.quantity}}
+                            </span>
+                            <button id="moins" class="btn-primary r-0">-</button>
                     </td>
 
                     <td>
@@ -58,39 +64,15 @@
                 </div>
             </div>
             <script>
-                prix = document.querySelectorAll('.prix')
-                vl = document.querySelectorAll('.quantity')
-                n = 0
-                s=0
-                k=0
-                vl.forEach(Element =>{
-                    n++
-                })
-                for (i=0;i<n ; i++){
-                    k = prix[i].textContent
-                    k = parseInt(k)
-                    l= vl[i].value
-                    l = parseInt(l)
-                    s+= k*l
-                    
-                }
-                console.log(s)
-                total = document.getElementById('total')
-                total.textContent+=s
-                s_total = document.querySelectorAll('.s_total')
-                nbr =0
-                s_total.forEach(Element =>{
-                    k = prix[nbr].textContent
-                    k = parseInt(k)
-                    l= vl[nbr].value
-                    l = parseInt(l)
-                    prod = k*l
-                    nbr++
-                    Element.textContent = prod
-                })
+                const countElement = document.getElementById('counter')
+                const Moins = document.getElementById('moins')
+                const Plus = document.getElementById('plus')
+
+
             </script>
 
         </section>
     </main>
 
+    {% endblock content %}
     {% include "Produits/footer.html" %}

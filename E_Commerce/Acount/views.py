@@ -10,10 +10,10 @@ def inscription(request):
         username = request.POST.get("username")
         email = request.POST.get("email")
         pw = request.POST.get("pw")
-        pwConfirm = request.POST.get("pwConfirm")
+        pwConfirm  = request.POST.get("pwConfirm")
         
         user = Utilisateur.objects.create_user(
-            username = username,
+            username = username, 
             email = email,
             password = pw,
             confirm_pwd = pwConfirm

@@ -39,7 +39,7 @@
             <form id="signUpForm" action="{% url 'inscription' %}" method="post" enctype="multipart/form-data">
                        
                 <h1 class="creer">Créer un compte</h1>
-                {% csrf_token %}       
+                {% csrf_token %}        
                 <input type="text" name="username" placeholder="Nom d'utilisateur" id="signupName" required />
                 <input type="email" name="email" placeholder="Email" id="signupEmail" required />
                 <input type="password" name="pw" placeholder="Mot de passe" id="signupPassword" required minlength="6" />

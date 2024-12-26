@@ -1,5 +1,6 @@
-{% load static %}
-{% include "Produits/header.html" %}
+{% extends "Produits/header.html" %}
+{% block content %}
+{% comment %} {% include "Produits/header.html" %} {% endcomment %}
 
     
 
@@ -10,8 +11,7 @@
 <h1 class="title">Meilleurs Produits 
     <a href="Produits.html" class="afficher-plus">afficher plus &#8594;</a>
 </h1>
-<div class="produits">
-    <div class="produits-contenu">
+{% comment %} <div class="produits">
         
         {% for produit in allProduit %}
         
@@ -21,23 +21,39 @@
             <h3 class="nom_pro"> {{produit.nom}} </h3>
             <p class="price"> {{produit.prix}} GNF</p>
             <div class="achat">
-                <!-- <a id="detail" class="acheter" href="">Détails</a> -->
                 <a id="detail" class="acheter" href=" {% url 'details' produit.id %} ">Details</a>
-                {% comment %} <a id="acheter" class="acheter" href=" {% url 'addCart' produit.id %} ">Ajouter</a> {% endcomment %}
-                <button id="{{ prod.id }}" class=" ted ">ajouter</button>
+                <a id="acheter" class="acheter" href=" {% url 'addCart' produit.id %} ">Ajouter</a>
             </div>
         </div>
     </div>
         
         {% endfor %}
 
+</div> {% endcomment %}
+
+<div class="produits">
+    {% for produit in allProduit %}
+    <div class="produits-text">
+            <img class="images" src=" {{produit.image.url}} " alt="Produit Image">
+        <div class="produits-info">
+            <h3 class="nom_pro">{{produit.nom}}</h3>
+            <p class="price">{{produit.prix}} GNF</p>
+            
+        </div>
+        <div class="achat_btn">
+            <a class="detail" href="{% url 'details' produit.id %}"><button>Details</button></a>
+            <a class="acheter" href="{% url 'addCart' produit.id %}"><button>Acheter</button></a>
+        </div>
     </div>
+    {% endfor %}
 </div>
+
+{% endblock content %}
 
 {% include "Produits/footer.html" %}
 
 
- <!-- {% block js %}
+ <!-- {% block js %}`` 
        <scrip type="text/javascript">
            console.log("juste un test");
            if(localStorage.getItem('panier') == null){

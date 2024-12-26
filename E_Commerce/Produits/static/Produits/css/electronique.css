@@ -1,8 +1,71 @@
+.nom-categorie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(images/electronique.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    background-position: center;
+    padding: 20px;
+    color: white;
+}
+
+.nomCategorieText {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.nomCategorieText h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.nomCategorieText p {
+    font-size: 1.2rem;
+}
+
+/* RESPONSIVE SCROOL BAR */
+@media (max-width: 768px) {
+    .nom-categorie {
+        height: 300px;
+    }
+    
+    .nomCategorieText h1 {
+        font-size: 2rem;
+    }
+
+    .nomCategorieText p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nom-categorie {
+        height: 250px;
+    }
+
+    .nomCategorieText h1 {
+        font-size: 1.5rem;
+    }
+
+    .nomCategorieText p {
+        font-size: 0.9rem;
+    }
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
+}
+a {
+    text-decoration: none;
 }
 
 header {
@@ -127,10 +190,6 @@ nav {
     transition: background-color 0.3s;
 }
 
-.dropdown-menu li a:hover {
-    background-color: white ;
-}
-
 /* End Dropdown menu */
 
 .nav-links,
@@ -186,6 +245,9 @@ nav {
     .nav-logo {
         margin-left: -4em;
     }
+}
+@media (max-width: 768) {
+
 }
 
 @media (max-width: 768px) and (min-width: 700px) {
@@ -317,67 +379,16 @@ nav {
 
 /* FIN RESPONSIVE ENTETE */
 
-/* Scrool bar css*/
-.nom-categorie {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 300px;
-    background-position: center;
-    padding: 20px;
-    color: white;
-}
 
-.nomCategorieText {
+/* FIN RESPONSIVE NAVBAR */
+
+/* Nos meilleurs produits css */
+
+.titre {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
+    margin-top: 35px;
+    text-decoration: none;
 }
-
-.nomCategorieText h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.nomCategorieText p {
-    font-size: 1.2rem;
-}
-
-/* RESPONSIVE SCROOL BAR */
-@media (max-width: 768px) {
-    .nom-categorie {
-        height: 300px;
-    }
-    
-    .nomCategorieText h1 {
-        font-size: 2rem;
-    }
-
-    .nomCategorieText p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .nom-categorie {
-        height: 250px;
-    }
-
-    .nomCategorieText h1 {
-        font-size: 1.5rem;
-    }
-
-    .nomCategorieText p {
-        font-size: 0.9rem;
-    }
-}
-
-/* Produits electronique */
 
 .title {
     text-align: center;
@@ -407,16 +418,23 @@ nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 10px;
     margin-bottom: 40px;
 }
-.produits-contenu{
+/* .produits-text{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%; 
+        gap: 15px;
+} */
+/* .produits-contenu{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%; 
     gap: 15px;
-}
+} */
 
 .produits-info .price{
     margin-bottom: 25px;
@@ -459,8 +477,43 @@ nav {
     margin: 0;
     font-size: 20px;
 }
-
-.acheter {
+.detail button{
+   flex: 1;
+   width: 100%;
+   margin: 5px;
+   background-color: #ee931d;
+   text-align: center;
+   padding: 7px 15px;
+   box-sizing: border-box;
+   border-radius: 5px;
+   font-size: 18px;
+   color: white;
+   border: 1px solid #ee931d;
+   transition: background 0.5s;
+}
+.detail button:hover {
+    background: #d48115;
+    color: white;
+}
+.acheter button{
+    width: 100%;
+   flex: 1;
+   margin: 5px;
+   background-color: #2294d7;
+   text-align: center;
+   padding: 7px 15px;
+   box-sizing: border-box;
+   border-radius: 5px;
+   font-size: 18px;
+   color: white;
+   border: 1px solid #2294d7;
+   transition: background 0.5s;
+}
+.acheter button:hover {
+    background: #356bc0;
+    color: white;
+}
+/* .acheter {
     flex: 1;
     margin: 5px;
     background-color: #2294d7;
@@ -468,13 +521,13 @@ nav {
     padding: 5px 20px;
     box-sizing: border-box;
     border-radius: 5px;
-}
+} */
 
-.achat {
+/* .achat {
    display: flex;
    justify-content: space-between;
-}
-#detail {
+} */
+/* #detail {
     background-color: #ee931d;
     color: white;
 }
@@ -487,7 +540,7 @@ nav {
 }
 #detail:hover{
     background-color: #d48115;
-}
+} */
 
 @media (max-width: 1280px) and (min-width: 1024px) {
     nav ul li{
@@ -497,23 +550,15 @@ nav {
         margin-left: 0;
         margin-right: 5rem;
     }
-    .categories-text {
+    /* .categories-text {
         flex: 1 1 100%;
         max-width: 100%;
-    }
-
-    .produits-text {
-        flex: 1 1 calc(25% - 50px);
-        max-width: calc(25% - 50px);
-    }
+    } */
     .produits-text img {
         max-width: 100%;
         width: 200%;
         height: 150%;
         margin-bottom: 10px;
-    }
-    .produits-contenu {
-        gap: 20px;
     }
     .produits {
         display: flex;
@@ -521,15 +566,7 @@ nav {
         flex-wrap: wrap;
         gap: 40px;
         margin-bottom: 40px;
-    }
-    .produits-contenu{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%; 
-        gap: 15px;
-    }
-    
+    }   
     .produits-info .price{
         margin-bottom: 25px;
     }
@@ -538,6 +575,8 @@ nav {
     }
     
     .produits-text {
+        flex: 1 1 calc(25% - 50px);
+        max-width: calc(25% - 50px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -553,11 +592,11 @@ nav {
         position: fixed;
     }
     
-    .produits-text img {
+    /* .produits-text img {
         width: 200px;
         height: 150px;
         margin-bottom: 20px;
-    }
+    } */
     .produits-text:hover {
         transform: scale(1.03);
     }
@@ -568,7 +607,43 @@ nav {
     .produits-text p{
         margin: 0;
         font-size: 20px;
-    }  
+    }
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 @media (max-width: 1024px) and (min-width: 768px){
     .logo h1{
@@ -602,7 +677,7 @@ nav {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 10px;
         margin-bottom: 40px;
     }
     .produits-contenu{
@@ -653,7 +728,7 @@ nav {
         font-size: 20px;
     }
     
-    .acheter {
+    /* .acheter {
         position: relative;
         bottom: 10px;
         padding: 5px 20px;
@@ -672,7 +747,43 @@ nav {
         border-radius: 5px;
         color: white;
         transition: background 0.5s;
-    }
+    } */
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 @media (max-width: 999px) and (min-width: 885px){
     .logo h1{
@@ -709,7 +820,7 @@ nav {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 10px;
         margin-bottom: 40px;
     }
     .produits-contenu{
@@ -760,7 +871,7 @@ nav {
         font-size: 20px;
     }
     
-    .acheter {
+    /* .acheter {
         position: relative;
         bottom: 10px;
         padding: 5px 20px;
@@ -779,7 +890,43 @@ nav {
         border-radius: 5px;
         color: white;
         transition: background 0.5s;
-    }
+    } */
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 @media (max-width: 884px) and (min-width: 769px){
     .logo h1{
@@ -867,7 +1014,7 @@ nav {
         font-size: 20px;
     }
     
-    .acheter {
+    /* .acheter {
         position: relative;
         bottom: 10px;
         padding: 5px 20px;
@@ -894,9 +1041,84 @@ nav {
     
     .acheter:hover {
         background: #2294d7;
-    }
-    
+    } */
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
+
+@media (max-width: 768){
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
+}
+
 @media (max-width: 768px) and (min-width: 566px) {
     .head {
         width: 100%;
@@ -969,7 +1191,7 @@ nav {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 10px;
         margin-bottom: 40px;
     }
     .produits-contenu{
@@ -1019,6 +1241,42 @@ nav {
         margin: 0;
         font-size: 20px;
     }
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
     
 }
 
@@ -1053,7 +1311,7 @@ nav {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 10px;
         margin-bottom: 40px;
     }
     .produits-contenu{
@@ -1103,6 +1361,42 @@ nav {
         margin: 0;
         font-size: 20px;
     }
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 @media (max-width: 565px) and (min-width: 480px) {
     .head {
@@ -1184,7 +1478,7 @@ nav {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 10px;
         margin-bottom: 40px;
     }
     .produits-contenu{
@@ -1235,6 +1529,42 @@ nav {
         margin: 0;
         font-size: 20px;
     }
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 
 @media (max-width: 480px) and (min-width: 410px){
@@ -1311,7 +1641,7 @@ nav {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 10px;
         margin-bottom: 40px;
     }
     .produits-contenu{
@@ -1361,6 +1691,42 @@ nav {
         margin: 0;
         font-size: 20px;
     }
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 @media (max-width: 410px) and (min-width: 315px){
     .head {
@@ -1442,7 +1808,7 @@ nav {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 10px;
         margin-bottom: 40px;
     }
     .produits-contenu{
@@ -1492,6 +1858,42 @@ nav {
         margin: 0;
         font-size: 20px;
     }
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 
 
@@ -1505,6 +1907,10 @@ nav {
         left: 0;
         background-color: #ffffff;
         padding: 10px;
+    }
+
+    nav {
+        color: #333;
     }
 
     .menu-icon {
@@ -1522,24 +1928,51 @@ nav {
     .dropdown .sous-menu {
         position: static;
     }
-    .nom-categorie {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: url(images/electronique.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 200px;
-        background-position: center;
-        padding: 20px;
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
         color: white;
-    }
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 
 @media (max-width: 768px) {
     .nav-toggle-label {
         display: block;
         margin-right: 20px;
+    }
+    nav {
+        color: #333;
     }
 
     .nav-links {
@@ -1552,14 +1985,17 @@ nav {
         width: 100%;
         text-align: center;
         transition: right 0.3s ease-in-out;
+        color: #333;
     }
 
     .nav-links li {
         margin: 20px 0;
+        color: #333;
     }
 
     .nav-links li a {
         font-size: 20px;
+        color: #333;
     }
 
     #nav-toggle:checked ~ .nav-links {
@@ -1598,70 +2034,49 @@ nav {
         position: relative;
         left: 3em;
     }
+    .detail button{
+        flex: 1;
+        width: 100%;
+        margin: 5px;
+        background-color: #ee931d;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #ee931d;
+        transition: background 0.5s;
+     }
+     .detail button:hover {
+         background: #d48115;
+         color: white;
+     }
+     .acheter button{
+         width: 100%;
+        flex: 1;
+        margin: 5px;
+        background-color: #2294d7;
+        text-align: center;
+        padding: 7px 15px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 18px;
+        color: white;
+        border: 1px solid #2294d7;
+        transition: background 0.5s;
+     }
+     .acheter button:hover {
+         background: #356bc0;
+         color: white;
+     }
 }
 
 
 
-/* Footer css */
+/* Footter css */
 
 .footer {
-    background: #333;
-    color: white;
-    padding: 40px 20px;
-}
-
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.footer-column {
-    flex: 1;
-    min-width: 200px;
-    color: white;
-}
-
-.footer-column h3 {
-    margin-bottom: 20px;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 10px;
-    color: white;
-}
-.footer-column ul li a{
-    color: white;
-    text-decoration: none;
-}
-
-.footer-column ul li a:hover {
-    color: #2294d7;
-}
-
-.social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.social-icons img {
-    width: 30px;
-    height: 30px;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid #444;
-    padding-top: 20px;
-}.footer {
     background-color: #333;
     color: #fff;
     padding: 40px 20px;
@@ -1775,3 +2190,5 @@ nav {
         font-size: 12px;
     }
 }
+
+

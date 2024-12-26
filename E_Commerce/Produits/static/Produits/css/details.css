@@ -199,10 +199,6 @@ nav {
     margin-top: 50px;
 }
 
-.details{
-    margin-left: 25%;
-    margin-top: 50px;
-}
 
 .nom_produit p {
     font-size: 40px;
@@ -212,14 +208,6 @@ nav {
 .prix p {
     font-size: 20px;
     margin: 2px;
-}
-
-.acheter button{
-    background-color: #ee931d;
-    color: white;
-    border: #ee931d;
-    padding: 5px 10px;
-    font-size: 15px;
 }
 
 
